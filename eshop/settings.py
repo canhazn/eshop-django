@@ -193,8 +193,13 @@ HAYSTACK_CONNECTIONS = {
 
 OSCAR_SHOP_NAME = "Eshop"
 OSCAR_DEFAULT_CURRENCY = 'VND'
+OSCAR_INITIAL_LINE_STATUS = False
+
 OSCAR_INITIAL_ORDER_STATUS = 'Pending'
-OSCAR_INITIAL_LINE_STATUS = 'Pending'
+OSCAR_ORDER_STATUS_PIPELINE = {
+    'Pending': ('Being processed', 'Cancelled',),
+    'Being processed': ('Processed', 'Cancelled',),
+}
 
 OSCAR_FROM_EMAIL = "ruouhinh@gmail.com"
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
