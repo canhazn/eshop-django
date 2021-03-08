@@ -195,3 +195,12 @@ OSCAR_SHOP_NAME = "Eshop"
 OSCAR_DEFAULT_CURRENCY = 'VND'
 OSCAR_INITIAL_ORDER_STATUS = 'Pending'
 OSCAR_INITIAL_LINE_STATUS = 'Pending'
+
+OSCAR_FROM_EMAIL = "ruouhinh@gmail.com"
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.gmail.com"
+Email_PORT = 587
+EMAIL_HOST_USER = "ruouhinh@gmail.com"
+EMAIL_HOST_PASSWORD = "9pu056094"
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
