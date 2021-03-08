@@ -1,0 +1,5 @@
+Django>=3.0,<4.0
+psycopg2>=2.8,<=2.8.6
+
+django-oscar>=3.0,<4.0
+sorl-thumbnail>=11.0,<12.0
