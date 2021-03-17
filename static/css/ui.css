@@ -908,6 +908,7 @@ a[class*=card]:hover .title {
 .card-product-grid:hover {
   box-shadow: 0 4px 15px rgba(153, 153, 153, 0.3);
   transition: 0.3s;
+  z-index: 1;
 }
 
 .item-slide .card-product-grid {

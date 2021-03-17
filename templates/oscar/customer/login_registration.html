@@ -2,42 +2,36 @@
 {% load i18n %}
 
 {% block title %}
-    {% trans 'Login or register' %} | {{ block.super }}
-{% endblock %}
-
-{% block breadcrumbs %}
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="{{ homepage_url }}">{% trans 'Home' %}</a>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">{% trans 'Login or register' %}</li>
-        </ol>
-    </nav>
+{% trans 'Login' %} | {{ block.super }}
 {% endblock %}
 
 {% block header %}{% endblock %}
 
 {% block content %}
 
-    <div class="row">
-        <div class="col-sm-6 login_form">
-            <form id="login_form" action="{{ request.get_full_path }}" method="post" class="card card-body bg-light" >
-                <h2>{% trans 'Log In' %}</h2>
-                {% csrf_token %}
-                {% include "oscar/partials/form_fields.html" with form=login_form %}
-                <p><a href="{% url 'password-reset' %}">{% trans "I've forgotten my password" %}</a></p>
-                <button name="login_submit" type="submit" value="Log In" class="btn btn-lg btn-primary" data-loading-text="{% trans "Logging in..." %}">{% trans 'Log In' %}</button>
-            </form>
-        </div>
-        <div class="col-sm-6 register_form">
-            <form id="register_form" action="{{ request.get_full_path }}" method="post" class="card card-body bg-light">
-                <h2>{% trans 'Register' %}</h2>
-                {% csrf_token %}
-                {% include "oscar/partials/form_fields.html" with form=registration_form %}
-                <button name="registration_submit" type="submit" value="Register" class="btn btn-lg btn-primary" data-loading-text="{% trans 'Registering...' %}">{% trans 'Register' %}</button>
-            </form>
-        </div>
+
+<div class="row">
+    <div class="col-sm-4 login_form m-auto">
+        <!-- ============================ COMPONENT LOGIN 1  ================================= -->
+        <div class="card border-0">
+            <div class="card-body">
+                <h4 class="card-title mb-4">Sign in</h4>
+                <form id="login_form" action="{{ request.get_full_path }}" method="post">
+                    {% csrf_token %}
+                    {% include "oscar/partials/form_fields.html" with form=login_form %}                    
+                    <p><a href="{% url 'password-reset' %}">{% trans "I've forgotten my password" %}</a></p>
+                    <div class="form-group">                        
+                        <button name="login_submit" type="submit" value="Log In" class="btn btn-block btn-primary"
+                            data-loading-text="{% trans "Logging in..." %}">{% trans 'Log In' %}</button>
+                    </div> <!-- form-group// -->
+                </form>
+            </div> <!-- card-body.// -->
+            {% comment %} <div class="card-footer text-center">Don't have an account? <a href="">Sign up</a></div> {% endcomment %}
+        </div> <!-- card .// -->
+        <!-- ============================ COMPONENT LOGIN 1  END.// ================================= -->
     </div>
+</div>
+
+<div class="my-5"></div>
 
 {% endblock content %}

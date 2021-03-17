@@ -5,7 +5,7 @@
 {% block layout %}
 
     <header class="header container">
-        <div class="page_inner">
+        <div class="">
             <div class="row">
                 {% include "oscar/partials/brand.html" %}
             </div><!-- /row -->
@@ -13,8 +13,8 @@
         {% block checkout_nav %}{% endblock %}
     </header><!-- /header -->
 
-    <div class="container page">
-       <div class="page_inner">
+    <div class=" ">
+       <div class="">
             {% include 'oscar/partials/alert_messages.html' %}
 
             <div class="sub-header">
@@ -42,7 +42,7 @@
 
             {% block content %}{% endblock %}
 
-        </div><!-- /page_inner -->
+        </div><!-- / -->
     </div>
     {% include "oscar/partials/footer_checkout.html" %}
 {% endblock %}

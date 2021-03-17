@@ -26,7 +26,7 @@ SECRET_KEY = '+)8hyqn1%)^+u$%zo#45l#ohi!dc7tks1z71svpegmjt$(jdh3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -200,6 +200,8 @@ OSCAR_ORDER_STATUS_PIPELINE = {
     'Pending': ('Being processed', 'Cancelled',),
     'Being processed': ('Processed', 'Cancelled',),
 }
+
+LOGIN_REDIRECT_URL = "/"
 
 OSCAR_FROM_EMAIL = "ruouhinh@gmail.com"
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"

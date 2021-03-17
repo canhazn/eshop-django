@@ -6,32 +6,31 @@
     {% trans 'Register' %} | {{ block.super }}
 {% endblock %}
 
-{% block breadcrumbs %}
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="{{ homepage_url }}">{% trans 'Home' %}</a>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">{% trans 'Register' %}</li>
-        </ol>
-    </nav>
-{% endblock %}
-
-{% block headertext %}
-    {% trans "Register" %}
-{% endblock %}
-
 {% block content %}
+
     <div class="row">
-        <div class="col-sm-6 register_form">
-            <form id="register_form" method="post">
-                {% csrf_token %}
-                {% include "oscar/partials/form_fields.html"  %}
-                <button name="registration_submit" type="submit" value="Register" class="btn btn-primary btn-lg" data-loading-text="{%trans 'Registering...' %}">{% trans 'Register' %}</button>
-                {% if cancel_url %}
-                    {% trans "or" %} <a href="{{ cancel_url }}">{% trans "cancel" %}</a>.
-                {% endif %}
-            </form>
+        <div class="col-sm-4 m-auto">
+            <!-- ============================ COMPONENT REGISTER   ================================= -->
+            <div class="card mx-auto border-0">
+                <article class="card-body">
+                    <header class="mb-4">
+                        <h4 class="card-title">Register</h4>
+                    </header>
+                     <form id="login_form" action="{{ request.get_full_path }}" method="post" class="card card-body bg-light">
+            <h2>{% trans 'Log In' %}</h2>
+            {% csrf_token %}
+            {% include "oscar/partials/form_fields.html" with form=login_form %}
+            <p><a href="{% url 'password-reset' %}">{% trans "I've forgotten my password" %}</a></p>
+            <button name="login_submit" type="submit" value="Log In" class="btn btn-lg btn-primary"
+                data-loading-text="{% trans "Logging in..." %}">{% trans 'Log In' %}</button>
+        </form>
+                </article><!-- card-body.// -->
+            </div> <!-- card .// -->
+            {% if cancel_url %}
+                <p class="text-center mt-4">or <a href="{{ cancel_url }}">Cancel</a>.</p>
+            {% endif %}
+            <br><br>
+            <!-- ============================ COMPONENT REGISTER  END.// ================================= -->
         </div>
     </div>
 {% endblock content %}

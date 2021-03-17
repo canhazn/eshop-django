@@ -1,12 +1,15 @@
 {% load i18n %}
-<footer class="footer container">
+<!-- ========================= FOOTER ========================= -->
+<footer class="section-footer border-top padding-y">
     {% block footer %}
-        {% comment %}
-            Could be used for displaying links to privacy policy, terms of service, etc.
-            We have a CSS class defined:
-                <ul class="footer_links inline">
-                    ...
-                </ul>
-         {% endcomment %}
+        <div class="container">
+            <p class="float-md-right">
+				&copy Copyright 2019 All rights reserved
+			</p>
+			<p>
+				<a href="#">Terms and conditions</a>
+			</p>
+        </div><!-- //container -->
     {% endblock %}
 </footer>
+<!-- ========================= FOOTER END // ========================= -->
